@@ -13,7 +13,7 @@ int main(void) {
     NU32DIP_WriteUART1(message); // send message back
     NU32DIP_WriteUART1("\r\n"); // carriage return and newline
 	if (NU32DIP_USER){
-		blink(n, m); // 5 times, 500ms each time
+		blink(n, m); // n-times, m-ms each time
 	}
   }
 }

@@ -64,7 +64,7 @@
         <makeUseCleanTarget>false</makeUseCleanTarget>
         <makeCustomizationPreStep></makeCustomizationPreStep>
         <makeCustomizationPostStepEnabled>true</makeCustomizationPostStepEnabled>
-        <makeCustomizationPostStep>C:/Users/17thu/Documents/GitHub/ME433 \\.\COM6</makeCustomizationPostStep>
+        <makeCustomizationPostStep>"C:/Users/17thu/Documents/Northwestern/Mechatronics/PIC32dip/nu32utility" "COM6" ${ImagePath}</makeCustomizationPostStep>
         <makeCustomizationPutChecksumInUserID>false</makeCustomizationPutChecksumInUserID>
         <makeCustomizationEnableLongLines>false</makeCustomizationEnableLongLines>
         <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
