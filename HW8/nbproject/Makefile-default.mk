@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=nu32dip.c ssd1306.c
+SOURCEFILES_QUOTED_IF_SPACED=nu32dip.c ssd1306.c i2c_master_noint.c hw8.c mpu6050.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/nu32dip.o ${OBJECTDIR}/ssd1306.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/nu32dip.o.d ${OBJECTDIR}/ssd1306.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/nu32dip.o ${OBJECTDIR}/ssd1306.o ${OBJECTDIR}/i2c_master_noint.o ${OBJECTDIR}/hw8.o ${OBJECTDIR}/mpu6050.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/nu32dip.o.d ${OBJECTDIR}/ssd1306.o.d ${OBJECTDIR}/i2c_master_noint.o.d ${OBJECTDIR}/hw8.o.d ${OBJECTDIR}/mpu6050.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/nu32dip.o ${OBJECTDIR}/ssd1306.o
+OBJECTFILES=${OBJECTDIR}/nu32dip.o ${OBJECTDIR}/ssd1306.o ${OBJECTDIR}/i2c_master_noint.o ${OBJECTDIR}/hw8.o ${OBJECTDIR}/mpu6050.o
 
 # Source Files
-SOURCEFILES=nu32dip.c ssd1306.c
+SOURCEFILES=nu32dip.c ssd1306.c i2c_master_noint.c hw8.c mpu6050.c
 
 
 
@@ -100,8 +100,8 @@ ifneq ($(INFORMATION_MESSAGE), )
 endif
 	${MAKE}  -f nbproject/Makefile-default.mk ${DISTDIR}/HW8.${IMAGE_TYPE}.${OUTPUT_SUFFIX}
 	@echo "--------------------------------------"
-	@echo "User defined post-build step: ["C:/Users/17thu/Documents/Northwestern/Mechatronics/PIC32dip/nu32utility" "COM6" ${ImagePath}]"
-	@"C:/Users/17thu/Documents/Northwestern/Mechatronics/PIC32dip/nu32utility" "COM6" ${ImagePath}
+	@echo "User defined post-build step: ["C:/Users/17thu/Documents/Northwestern/Mechatronics/PIC32dip/nu32utility" "COM8" ${ImagePath}]"
+	@"C:/Users/17thu/Documents/Northwestern/Mechatronics/PIC32dip/nu32utility" "COM8" ${ImagePath}
 	@echo "--------------------------------------"
 
 MP_PROCESSOR_OPTION=32MX170F256B
@@ -133,6 +133,24 @@ ${OBJECTDIR}/ssd1306.o: ssd1306.c  .generated_files/flags/default/4f26dd107bb188
 	@${RM} ${OBJECTDIR}/ssd1306.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-common -MP -MMD -MF "${OBJECTDIR}/ssd1306.o.d" -o ${OBJECTDIR}/ssd1306.o ssd1306.c    -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
+${OBJECTDIR}/i2c_master_noint.o: i2c_master_noint.c  .generated_files/flags/default/a6e5b8427e0fa1a5249021b2f27532b7e398528b .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/i2c_master_noint.o.d 
+	@${RM} ${OBJECTDIR}/i2c_master_noint.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-common -MP -MMD -MF "${OBJECTDIR}/i2c_master_noint.o.d" -o ${OBJECTDIR}/i2c_master_noint.o i2c_master_noint.c    -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+	
+${OBJECTDIR}/hw8.o: hw8.c  .generated_files/flags/default/d0094648c93d68413d32424eb0f303f365a8804f .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/hw8.o.d 
+	@${RM} ${OBJECTDIR}/hw8.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-common -MP -MMD -MF "${OBJECTDIR}/hw8.o.d" -o ${OBJECTDIR}/hw8.o hw8.c    -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+	
+${OBJECTDIR}/mpu6050.o: mpu6050.c  .generated_files/flags/default/d430c777dc24e1eed99bedc6461346dae98f476e .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/mpu6050.o.d 
+	@${RM} ${OBJECTDIR}/mpu6050.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG   -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-common -MP -MMD -MF "${OBJECTDIR}/mpu6050.o.d" -o ${OBJECTDIR}/mpu6050.o mpu6050.c    -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+	
 else
 ${OBJECTDIR}/nu32dip.o: nu32dip.c  .generated_files/flags/default/64cf29a5bf0dac3bff7990e69ac05881c7adab11 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
 	@${MKDIR} "${OBJECTDIR}" 
@@ -145,6 +163,24 @@ ${OBJECTDIR}/ssd1306.o: ssd1306.c  .generated_files/flags/default/59cb83a47eb4dc
 	@${RM} ${OBJECTDIR}/ssd1306.o.d 
 	@${RM} ${OBJECTDIR}/ssd1306.o 
 	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-common -MP -MMD -MF "${OBJECTDIR}/ssd1306.o.d" -o ${OBJECTDIR}/ssd1306.o ssd1306.c    -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+	
+${OBJECTDIR}/i2c_master_noint.o: i2c_master_noint.c  .generated_files/flags/default/877a4a364d8637ed362aa20ce22b78799cec6657 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/i2c_master_noint.o.d 
+	@${RM} ${OBJECTDIR}/i2c_master_noint.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-common -MP -MMD -MF "${OBJECTDIR}/i2c_master_noint.o.d" -o ${OBJECTDIR}/i2c_master_noint.o i2c_master_noint.c    -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+	
+${OBJECTDIR}/hw8.o: hw8.c  .generated_files/flags/default/548fab862f27f1d2d6e1d377588608dbdf8280c8 .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/hw8.o.d 
+	@${RM} ${OBJECTDIR}/hw8.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-common -MP -MMD -MF "${OBJECTDIR}/hw8.o.d" -o ${OBJECTDIR}/hw8.o hw8.c    -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
+	
+${OBJECTDIR}/mpu6050.o: mpu6050.c  .generated_files/flags/default/5627cd8f0744467dd257cefeacfc6253cfacb29b .generated_files/flags/default/da39a3ee5e6b4b0d3255bfef95601890afd80709
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/mpu6050.o.d 
+	@${RM} ${OBJECTDIR}/mpu6050.o 
+	${MP_CC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -fno-common -MP -MMD -MF "${OBJECTDIR}/mpu6050.o.d" -o ${OBJECTDIR}/mpu6050.o mpu6050.c    -DXPRJ_default=$(CND_CONF)    $(COMPARISON_BUILD)  -mdfp="${DFP_DIR}"  
 	
 endif
 
