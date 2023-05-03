@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+
 
 # based on RPi Pico sample code
 
@@ -26,11 +26,11 @@ class Plotter:
         self.ax = ax
         self.maxt = 250
         self.tdata = [0]
-        self.ydata = [3.3/2]
+        self.ydata = [0]
         self.line = Line2D(self.tdata, self.ydata)
 
         self.ax.add_line(self.line)
-        self.ax.set_ylim(0, 3.3)
+        self.ax.set_ylim(-2, 2)
         self.ax.set_xlim(0, self.maxt)
 
     def update(self, y):
@@ -64,8 +64,8 @@ def serial_getter():
 #if len(sys.argv) < 2:
 #    raise Exception("Ruh roh..no port specified!")
 
-# hard coded serial port name, timeout after 2 minutes
-ser = serial.Serial("COM3", 230400, timeout=120)
+ser = serial.Serial('COM8', 230400, timeout=1)
+ser.write(b'\n')
 
 fig, ax = plt.subplots()
 plotter = Plotter(ax)
