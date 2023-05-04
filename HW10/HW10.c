@@ -6,20 +6,28 @@
 int main(void) {
     NU32DIP_Startup(); // cache on, interrupts on, LED/button init, UART init
     ws2812b_setup();
-    wsColor LEDstrip[3];
+    wsColor LEDstrip[8];
     
-    LEDstrip[0].g = 255;
-    LEDstrip[0].r = 0;
-    LEDstrip[0].b = 0;
-    LEDstrip[1].g = 0;
-    LEDstrip[1].r = 255;
-    LEDstrip[1].b = 0;
-    LEDstrip[2].g = 0;
-    LEDstrip[2].r = 0;
-    LEDstrip[2].b = 255;
-    
+    float hue = 0;
+    float sat = 1;
+    float brightness = 1;
     while (1) {
-        ws2812b_setColor(LEDstrip, 3);
+        
+        for (int i=0; i<8; i++){
+            
+            LEDstrip[i] = HSBtoRGB(hue, sat, brightness);
+            if (hue < 360){
+                hue = hue + 1;
+            }
+            else{
+                hue = 0;
+            }
+        }
+        ws2812b_setColor(LEDstrip, 8);
+        _CP0_SET_COUNT(0);
+        while (_CP0_GET_COUNT() < 600000) {
+            ;
+        }
     }
 }
 
