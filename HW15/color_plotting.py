@@ -17,7 +17,7 @@ bright = []
 
 
 # Function for finding the COM of the line based on the red, green and blue input values from image
-def filter_image(red, green, blue):
+def bw_image(red, green, blue):
     filtered = []
 
     #inverting the data... high values = black areas in the image
@@ -28,6 +28,17 @@ def filter_image(red, green, blue):
             filtered.append(100)
     
     return filtered
+
+def grayscale(red, green, blue, bright):
+    filtered = []
+    
+    #inverting the data... high values = black areas in the image
+    for i in range(len(red)):
+        gray = (red[i] + green[i] + blue[i])/3
+        filtered.append(gray)
+    
+    return filtered
+
 
 def find_COM(filtered_data):
     numerator = 0
@@ -59,9 +70,9 @@ while sampnum < 60: # width of bitmap
 for i in range(len(reds)):
     print(f"{raw[i]:#018b}")
 
-filtered_image = filter_image(reds, blues, greens)
-COM = find_COM(filtered_image)
-print(COM)
+filtered_image = grayscale(reds, blues, greens, bright)
+com = find_COM(filtered_image)
+print(com)
 
 # plot the colors 
 import matplotlib.pyplot as plt 

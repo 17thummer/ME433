@@ -6,6 +6,7 @@
                    projectFiles="true">
       <itemPath>ws2812b.h</itemPath>
       <itemPath>nu32dip.h</itemPath>
+      <itemPath>uart2.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -18,6 +19,7 @@
       <itemPath>ws2812b.c</itemPath>
       <itemPath>nu32dip.c</itemPath>
       <itemPath>Final_Real.c</itemPath>
+      <itemPath>uart2.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

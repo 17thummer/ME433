@@ -9,10 +9,10 @@
 
 // setup Timer2 for 48MHz, and setup the output pin
 void ws2812b_setup() {
-    T2CONbits.TCKPS = 0; // Timer2 prescaler N=1 (1:1)
-    PR2 = 65535; // maximum period
-    TMR2 = 0; // initialize Timer2 to 0
-    T2CONbits.ON = 1; // turn on Timer2
+    T4CONbits.TCKPS = 0; // Timer5 prescaler N=1 (1:1)
+    PR4 = 65535; // maximum period
+    TMR4 = 0; // initialize Timer2 to 0
+    T4CONbits.ON = 1; // turn on Timer2
 
     // initialize output pin B6 as off
     TRISBbits.TRISB6 = 0;
@@ -93,15 +93,15 @@ void ws2812b_setColor(wsColor * c, int numLEDs) {
 
     // turn on the pin for the first high/low
     LED_ARRAY = 1;
-    TMR2 = 0; // start the timer
+    TMR4 = 0; // start the timer
     for (i = 1; i < numBits; i++) {
-        while (TMR2 < delay_times[i]) {
+        while (TMR4 < delay_times[i]) {
         }
         LATBINV = 0b1000000; // invert B6
     }
     LED_ARRAY = 0;
-    TMR2 = 0;
-    while(TMR2 < 2400){} // wait 50uS, reset condition
+    TMR4 = 0;
+    while(TMR4 < 2400){} // wait 50uS, reset condition
 }
 
 // adapted from https://forum.arduino.cc/index.php?topic=8498.0
